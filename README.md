@@ -21,3 +21,9 @@ $ curl http://localhost:10000/items/1002/type/takeaway
 ```
 {"id":1002,"name":"Chicken Chaap","price":180}
 ```
+
+# To update all the service configs in one shot
+
+```
+http://localhost:10000/actuator/bus-refresh
+```
