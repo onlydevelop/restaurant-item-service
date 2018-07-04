@@ -11,7 +11,24 @@ public class Item {
 	
 	private String name;
 	private int price;
+	private int port;
 	
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setPort(int port) {
+		this.port = port;
+	}
+	
+	public int getPort() {
+		return port;
+	}
+
 	public long getId() {
 		return id;
 	}
