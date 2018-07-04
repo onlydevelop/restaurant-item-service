@@ -2,6 +2,8 @@ package com.restaurant.itemservice;
 
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ItemsController {
+	
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	@Autowired
 	private Environment environment;
@@ -22,7 +26,7 @@ public class ItemsController {
 	
 	@GetMapping("/items/{id}/type/{type}")
 	public Item getItem(@PathVariable Long id, @PathVariable String type) {
-		
+		logger.info("items-service: id -> {} type -> {}", id, type);
 		Optional<Item> item = repository.findById(id);
 		return getCalculatedItem(item.get(), type); 
 	}
